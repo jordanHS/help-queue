@@ -4,10 +4,10 @@ import TicketList from "./TicketList";
 
 function App(){
   return (
-    <ReactFragment>
+    <React.Fragment>
       <Header />
      <TicketList />
-    </ReactFragment>
+    </React.Fragment>
   );
 }
 
