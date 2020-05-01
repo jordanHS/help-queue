@@ -1,21 +1,25 @@
 import React from "react";
 import Ticket from "./Ticket.js";
+import PropTypes from "prop-types";
 
-function TicketList() {
+function TicketList(props) {
     return (
         <React.Fragment>
-        <Ticket 
-            location="3A"
-            names="Thanto and Haley"
-            issue="Firebase will not save record!"
-        />
-        <Ticket
-            location ="4B"
-            names="Sleater and Kinney"
-            issue="Prop types are throwing an error."
-        />
+            <hr/>
+            {props.ticketList.map((ticket, index) =>
+                <Ticket
+                    whenTicketClicked = {props.onTicketSelection }
+                    names={ticket.names}
+                    location={ticket.location}
+                    issue={ticket.issue}
+                    key={index}/>
+            )}
         </React.Fragment>
     );
 }
 
+TicketList.propTypes = {
+    ticketList: PropTypes.array,
+    onTicketSelection: PropTypes.func
+};
 export default TicketList;
